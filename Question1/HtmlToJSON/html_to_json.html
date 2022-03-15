@@ -1,0 +1,53 @@
+<html>
+
+<body>
+    <div align="center">
+
+    <input type="file" id="fileinput" /><br>
+</div><br>
+<div align="center">
+    <input  type="button" id="output" value="o/p" onclick="toJson()" />
+</div>
+<br>
+    <div id="ReadResult"></div><br>
+    <script type="text/javascript">
+        function readSingleFile(evt) {
+            var f = evt.target.files[0];
+
+            if (f) {
+                var r = new FileReader();
+                r.onload = function (e) {
+                    var contents = e.target.result;
+                    document.getElementById("ReadResult").innerHTML = contents;
+                }
+                r.readAsText(f);
+            } else {
+                alert("Failed to load file");
+            }
+        }
+        function toJson()
+        {
+            document.getElementById("ReadResult").innerHTML= JSON.stringify(htmltoJson(document.getElementById("ReadResult")));
+        }
+        function htmltoJson(div) {
+
+            
+            var tag = {};
+            tag[div.tagName]=[];
+            if(div.children.length<=0){ 
+            tag[div.tagName].push(div.innerText);
+            }
+            for (var i = 0; i < div.children.length; i++) { 
+                tag[div.tagName].push(htmltoJson(div.children[i]));
+                
+            }
+            console.log(tag);
+            return tag;
+
+        }
+        document.getElementById('fileinput').addEventListener('change', readSingleFile);
+ false
+    </script>
+</body>
+
+</html>

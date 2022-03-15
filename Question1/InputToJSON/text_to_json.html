@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <p>Try</p>
+</head>
+
+<body>
+    <form id="jsonCreate">
+        <div>
+            <p>Person 1</p>
+            <p>Name&nbsp;&nbsp;&nbsp;<input type="text" id="name1" required></input></p>
+            <p>City&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="city1" required></input></p>
+        </div>
+        <input type="button" value="Submit" onclick="convertJSON()">
+    </form>
+    <p id="output"></p>
+</body>
+<Script>
+    var op = document.getElementById("output");
+    
+    function convertJSON() {
+        var name1 = document.getElementById("name1").value;
+        var city1 = document.getElementById("city1").value;
+
+        //alert(name1.value);
+        var obj = new Object();
+        obj.name1 = name1.toString();
+        obj.city1 = city1.toString();
+
+        var string = JSON.stringify(obj);
+        console.log(string);
+        op.innerHTML = string;
+      
+    }
+</Script>
+</body>
+
+</html>

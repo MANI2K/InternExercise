@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+    <title>calculator</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+
+    <div ng-app="myapp" ng-controller="ctrl" align="center">
+
+        <p>Calculator</p>
+        <p>Number1: <input type="number" ng-model="num1"></p>
+        <p>Number2: <input type="number" ng-model="num2"></p>
+        <table>
+            <tr>
+                <th>Operations</th>
+                <th>Output</th>
+            </tr>
+            <tr>
+                <td>Addition</td>
+                <td>{{num1+num2}}</td>
+            </tr>
+            <tr>
+                <td>Subtraction</td>
+                <td>{{num1-num2}}</td>
+            </tr>
+            <tr>
+                <td>Product</td>
+                <td>{{num1*num2}}</td>
+            </tr>
+            <tr>
+                <td>Division</td>
+                <td>{{num1/num2}}</td>
+            </tr>
+        </table>
+    
+    </div>
+
+</body>
+<script>
+    var app = angular.module('myapp', []);
+    app.controller('ctrl', function ($scope) {
+        $scope.num1 = 1;
+        $scope.num2 = 1;
+    });
+</script>
+
+</html>

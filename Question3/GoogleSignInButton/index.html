@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="google-signin-client_id"
+    content="352398726574-b4j053r9l34jaaaorjdvto81241p667a.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <title>calculator sign in</title>
+</head>
+
+<body>
+  <h1>Google sign in</h1>
+  <div align="center">
+  <div class="g-signin2" data-onsuccess="onSignIn"></div><br>
+  <button onclick="signOut()">Sign out</button>
+  <div id="output"></div>
+  <p id="link"></p>
+</div>
+</body>
+<script>
+  function onSignIn(googleUser) {
+    console.log(googleUser.getBasicProfile())
+    document.getElementById("output").innerText = googleUser.getBasicProfile().getName();
+    var img = document.createElement("img");
+    img.setAttribute("src", googleUser.getBasicProfile().getImageUrl());
+    img.setAttribute("id", "img1");
+    document.getElementById("output").append(img);
+    var a = document.createElement("a");
+    a.setAttribute("id", "anchor");
+    var cal = document.createTextNode("Calculator");
+    a.appendChild(cal);
+    a.href = "./CalWithAngular.html";
+    document.getElementById("link").append(a);
+
+  }
+
+  function signOut() {
+    gapi.auth2.getAuthInstance().signOut().then(function () {
+      console.log('user signed out');
+    });
+    const img = document.getElementById("img1");
+    img.remove();
+    const link = document.getElementById("anchor");
+    link.remove();
+    document.getElementById("output").innerText = "";
+  }
+</script>
+
+</html>

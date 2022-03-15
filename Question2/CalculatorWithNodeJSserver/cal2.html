@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Calculator</title>
+  <style>
+    input[type=button] {
+      color: white;
+      background-color: green;
+      height: 50px;
+      width: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <div align="center">
+    <div align="center" style="width: 400px;
+  height: 500px;
+  background: black;"><br>
+      <form>
+        <input type="text" id="txt1" style="font-size:16pt;"></input>
+        <br>
+        <br><input type="button" value="1" onclick="one()"></input>
+        &nbsp;<input type="button" value="2" onclick="two()"></input>
+        &nbsp;<input type="button" value="3" onclick="three()"></input><br>
+        <br>
+        <input type="button" value="4" onclick="four()"></input>
+        &nbsp;<input type="button" value="5" onclick="five()"></input>
+        &nbsp;<input type="button" value="6" onclick="six()"></input><br>
+        <br><input type="button" value="7" onclick="seven()"></input>
+        &nbsp;<input type="button" value="8" onclick="eight()"></input>
+        &nbsp;<input type="button" value="9" onclick="nine()"></input><br>
+        <br><input type="button" value="0" onclick="zero()"></input><br>
+        <br><input type="button" value="+" onclick="add()"></input>
+        &nbsp;<input type="button" value="-" onclick="sub()"></input>
+        &nbsp;<input type="button" value="*" onclick="mul()"></input>
+        &nbsp;<input type="button" value="/" onclick="div()"></input><br>
+        <br>
+        &nbsp;<input type="button" id="ans" value="Ans" onclick="oper()"></input>
+        &nbsp;<input type="button" value="Clear" id="clear"
+          onclick="document.getElementById('txt1').value = ''"></input>
+      </form>
+    </div>
+  </div>
+</body>
+<script src="reference2.js">
+
+</script>
+
+</html>
