@@ -20,6 +20,7 @@
 <script>
   function onSignIn(googleUser) {
     console.log(googleUser.getBasicProfile())
+    console.log(googleUser.getId());
     document.getElementById("output").innerText = googleUser.getBasicProfile().getName();
     var img = document.createElement("img");
     img.setAttribute("src", googleUser.getBasicProfile().getImageUrl());
